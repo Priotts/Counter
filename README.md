@@ -1,6 +1,6 @@
 ## Counter - S2I
 
-Welcome to my [counter site](https://priotts.github.io/Counter/)! Here you can find information about how it was made and how to clone it.
+Welcome to my [counter site](https://priotts.github.io/Counter/)! Here you can find information about how it was made.
 
 ## Description
 The site was created using HTML, CSS and JAVA SCRIPT. The JavaScript application allows the user to increment, decrement, and reset the counter value. The application will appear as soon as the start key is pressed.
