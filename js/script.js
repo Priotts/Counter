@@ -1,66 +1,55 @@
-let start = document.getElementById('start');
-let btnBox = document.querySelector('.btn-box')
-
-let resultElement;
-let result = 0;
-
-function increase() {
+function increase(result, resultElement) {
     result += 1;
     resultElement.textContent = result;
-}
-
-function decrease(){
+    return result;
+  }
+  
+  function decrease(result, resultElement) {
     result -= 1;
     resultElement.textContent = result;
-}
-
-function reset(){
+    return result;
+  }
+  
+  function reset(result, resultElement) {
     result = 0;
     resultElement.textContent = result;
-}
-
-function increaseBtn() {
-    let increaseBtn = document.createElement('button');
-    increaseBtn.setAttribute('id', 'increaseBtn');
-    increaseBtn.textContent = 'Increase';
-    increaseBtn.addEventListener('click', increase);
-    return increaseBtn;
-}
-
-function decreaseBtn() {
-    let decreaseBtn = document.createElement('button');
-    decreaseBtn.setAttribute('id', 'decreaseBtn');
-    decreaseBtn.textContent = 'Decrease';
-    decreaseBtn.addEventListener('click', decrease);
-    return decreaseBtn;
-}
-
-function resetBtn() {
-    let resetBtn = document.createElement('button');
-    resetBtn.setAttribute('id', 'resetBtn');
-    resetBtn.textContent = 'Reset';
-    resetBtn.addEventListener('click', reset);
-    return resetBtn;
-}
-
-function resultBox() {
-    let resultBox = document.createElement('div');
-    resultBox.setAttribute('id', 'resultBox');
-    resultBox.textContent = 0;
-    resultElement = resultBox;
-    return resultBox;
-}
-
-function addBtn() {
-    let incBtn = increaseBtn();
-    let decBtn = decreaseBtn();
-    let resBtn = resetBtn();
-    let resBox = resultBox();
-    btnBox.append(incBtn, resBox, decBtn, resBtn);
+    return result;
+  }
+  
+  function createButton(id, text, clickHandler) {
+    let button = document.createElement('button');
+    button.setAttribute('id', id);
+    button.textContent = text;
+    button.addEventListener('click', clickHandler);
+    return button;
+  }
+  
+  function addButtons() {
+    let result = 0;
+    let resultElement = document.createElement('div');
+    resultElement.setAttribute('id', 'resultBox');
+    resultElement.textContent = result;
+    let btnBox = document.querySelector('.btn-box');
+    
+    let incBtn = createButton('increaseBtn', 'Increase', function () {
+      result = increase(result, resultElement);
+    });
+  
+    let decBtn = createButton('decreaseBtn', 'Decrease', function () {
+      result = decrease(result, resultElement);
+    });
+  
+    let resBtn = createButton('resetBtn', 'Reset', function () {
+      result = reset(result, resultElement);
+    });
+  
+    btnBox.append(incBtn, resultElement, decBtn, resBtn);
     btnBox.classList.add('show');
-    //removeEventListener
-    start.removeEventListener('click', addBtn);
+    
+    // Remove the event listener
+    start.removeEventListener('click', addButtons);
     start.textContent = 'ENJOY!';
-}
-
-start.addEventListener('click', addBtn);
+  }
+  
+  let start = document.getElementById('start');
+  start.addEventListener('click', addButtons);
