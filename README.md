@@ -13,5 +13,7 @@ The site was created using HTML, CSS and JAVA SCRIPT. The JavaScript application
 ## Info
 In the first version there were some global variables and repetitive functions, which as described in the various guides are not the best for code safety and readability. Therefore, I opted to eliminate the global variables and use the createButton function with arguments.
 
+![code](https://github.com/Priotts/Counter/assets/94853311/d460024b-da83-40e0-a0a9-bbe124579a00)
+
 ## Contact
 You can contact me using GitHub or by filling out the [form](https://priotts.github.io/contact.html) 
